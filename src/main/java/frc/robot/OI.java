@@ -7,36 +7,40 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.commands.*;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  //// CREATING BUTTONS
-  // One type of button is a joystick button which is any button on a
-  //// joystick.
-  // You create one by telling it which joystick it's on and which button
-  // number it is.
-  // Joystick stick = new Joystick(port);
-  // Button button = new JoystickButton(stick, buttonNumber);
+    /*
+    * Gamepad Button IDs;
+    * 1: A
+    * 2: B
+    * 3: X
+    * 4: Y
+    * 5: Left Bumper
+    * 6: Right Bumper
+    * 7: Back
+    * 8: Start
+    */
 
-  // There are a few additional built in buttons you can use. Additionally,
-  // by subclassing Button you can create custom triggers and bind those to
-  // commands the same as any other Button.
+  public Joystick gamepad = new Joystick(0);
+  Joystick joystick_left = new Joystick(1);
+  Joystick joystick_right = new Joystick(2);
 
-  //// TRIGGERING COMMANDS WITH BUTTONS
-  // Once you have a button, it's trivial to bind it to a button in one of
-  // three ways:
 
-  // Start the command when the button is pressed and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenPressed(new ExampleCommand());
+  public OI() {}
 
-  // Run the command while the button is being held down and interrupt it once
-  // the button is released.
-  // button.whileHeld(new ExampleCommand());
-
-  // Start the command when the button is released and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenReleased(new ExampleCommand());
+  //Left joystick
+  public double getLeftJoystickX() { return joystick_left.getX(); }
+  public double getLeftJoystickY() { return joystick_left.getY(); }
+  public double getLeftJoystickZ() { return joystick_left.getZ(); }
+  //Right joystick
+  public double getRightJoystickX() { return joystick_right.getX(); }
+  public double getRightJoystickY() { return joystick_right.getY(); }
+  public double getRightJoystickZ() { return joystick_right.getZ(); }
 }
